@@ -1,0 +1,21 @@
+
+GET venue/:id
+
+	SELECT Venue.venue_name, User.user_id, User.username, Venue.category_id,
+		VenueCategory.category_name, VenueCategory.category_description,
+		Venue.city, Venue.short_description, Venue.long_description,
+		Venue.date_added, Venue.address, Venue.latitude, Venue.longitude,
+		VenuePhoto.photo_filename, VenuePhoto.photo_description, VenuePhoto.is_primary
+	FROM Venue
+	INNER JOIN User ON (Venue.admin_id = User.user_id)
+	INNER JOIN VenueCategory ON (Venue.category_id = VenueCategory.category_id)
+	LEFT JOIN VenuePhoto ON (Venue.venue_id = VenuePhoto.venue_id)
+	WHERE Venue.venue_id = 1;
+
+POST venue
+
+INSERT INTO venue
+	(venue_name, category_id, city, short_description, long_description, address, latitude, longitude)
+VALUES
+	("Santa's Winter Palace", 1, "North Pole", "The chillest place on earth.",
+	"Especially good in the summer months.", "1 North Pole", -45, 0);
