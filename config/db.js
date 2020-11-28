@@ -9,10 +9,9 @@ exports.createPool = async function () {
             rejectUnauthorized: false
         }
     })
-
-    client.connect()
-    
 };
+
+client.connect()
 
 exports.getPool = function () {
     return client;
