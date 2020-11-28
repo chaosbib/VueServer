@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-const mysql = require('pg');
 
 let client = null;
 
@@ -10,6 +9,9 @@ exports.createPool = async function () {
             rejectUnauthorized: false
         }
     })
+
+    client.connect()
+    
 };
 
 exports.getPool = function () {

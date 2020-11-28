@@ -4,7 +4,7 @@ const express = require('./config/express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Test connection to MySQL on start-up
+// Test connection to Heroku on start-up
 async function testDbConnection() {
     try {
         await db.createPool();

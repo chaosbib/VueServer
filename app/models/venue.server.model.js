@@ -325,6 +325,7 @@ exports.getVenues = async function(done) {
 
 };
 
+
 exports.filterVenues = async function(filter, done) {
 
     if (filter['minStarRating'] > 5) return done({"ERROR":"Bad Request","status":400});
