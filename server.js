@@ -1,15 +1,14 @@
-require('dotenv').config();
 const db = require('./config/db');
 const express = require('./config/express');
 
 const app = express();
-const port = 4941;
+const port = process.env.PORT || 3000;
 
 // Test connection to MySQL on start-up
 async function testDbConnection() {
     try {
         await db.createPool();
-        await db.getPool().getConnection();
+        await db.getPool()
     } catch (err) {
         console.error(`Unable to connect to MySQL: ${err.message}`);
         process.exit(1);

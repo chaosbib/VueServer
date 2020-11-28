@@ -1,17 +1,17 @@
-const mysql = require('promise-mysql');
+const { Client } = require('pg');
+const mysql = require('pg');
 
-let pool = null;
+let client = null;
 
 exports.createPool = async function () {
-    pool = mysql.createPool({
-        multipleStatements: true,
-        host: process.env.SENG365_MYSQL_HOST,
-        user: process.env.SENG365_MYSQL_USER,
-        password: process.env.SENG365_MYSQL_PASSWORD,
-        database: process.env.SENG365_MYSQL_DATABASE
-    });
+    client = new Client({
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    })
 };
 
 exports.getPool = function () {
-    return pool;
+    return client;
 };

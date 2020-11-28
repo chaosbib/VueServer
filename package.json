@@ -6,7 +6,7 @@
     "debug": "node --trace-warnings %NODE_DEBUG_OPTION% server.js"
   },
   "dependencies": {
-    "bcrypt": "^3.0.8",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "crypto": "^1.0.1",
     "dotenv": "^6.2.0",
@@ -19,6 +19,7 @@
     "mysql": "^2.16.0",
     "mz": "^2.7.0",
     "path": "^0.12.7",
+    "pg": "^8.5.1",
     "promise-mysql": "^3.3.1",
     "stats-lite": "^2.2.0"
   }
