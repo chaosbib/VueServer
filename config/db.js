@@ -11,8 +11,7 @@ exports.createPool = async function () {
     })
 };
 
-client.connect()
-
 exports.getPool = function () {
+    client.connect()
     return client;
 };
